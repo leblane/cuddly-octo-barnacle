@@ -31,6 +31,22 @@ class CityBlockHandler extends Controller
         $Y = $postdata['Y'];
         $name = $postdata['name'];
         // initialize our city block (8 buildings with 4 floors each.)
+        $name = "CityBlock#" . $X*65536+$Y;
+        return $this->makeBlock($X,$Y,$name);
+    }
+
+    public function makeInitialCityBlock()
+    {
+        for ($X=32760; $X < 32777; $X++) {
+            for ($Y=32760; $Y < 32760; $Y++) {
+                $name = "CityBlock#" . $X*65536+$Y;
+                $this->makeBlock($X,$Y,$name);
+            }
+        }
+    }
+
+    private function makeBlock($X,$Y,$name)
+    {
         $CityBlock=\App\City::create(compact([$X,$Y,$name]));
         for ($i=0; $i < 8; $i++) {
             // create 8 buildings
