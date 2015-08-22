@@ -36,20 +36,24 @@ class CityBlockHandler extends Controller
 
     public function makeInitialCityBlock()
     {
-        for ($X=32760; $X < 32777; $X++) {
-            for ($Y=32760; $Y < 32760; $Y++) {
+        $Z = 0;
+        for ($X=32760; $X < 32768; $X++) {
+            for ($Y=32760; $Y < 32768; $Y++) {
+                $Z = $Z + 1;
                 $this->makeBlock($X,$Y);
             }
         }
-        return "Loads of blocks made";
+        return $Z . "Loads of blocks made";
     }
 
-    private function makeBlock($X,$Y,$name)
+    private function makeBlock($X,$Y)
     {
-        $CityBlock=new \App\City;
+        $CityBlock=new \App\Cityblock;
         $CityBlock->X = $X;
         $CityBlock->Y = $Y;
-        $CityBlock->name = "CityBlock#" . $X*65536+$Y;
+        $xy = $X*65536+$Y;
+        $CityBlock->name = "CityBlock#" . $xy;
+        $CityBlock->save();
         for ($i=0; $i < 8; $i++) {
             // create 8 buildings
             $B = new \App\Building;
