@@ -1,0 +1,12 @@
+body {
+	background: orange;
+	margin: 3em;
+	padding 1em;
+	border: 1ex dashed plum;
+
+}
+
+p {
+	font-size: 24px;
+	color: '#804410';
+}

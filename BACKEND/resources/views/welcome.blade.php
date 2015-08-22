@@ -31,14 +31,15 @@
             }
 
             .title {
-                font-size: 96px;
+                font-size: 196px;
             }
         </style>
     </head>
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Laravel 5</div>
+                <div class="title">OMG THIS IS A WELCOME PAGE <i>squeel</i></div>
+                <h6>that be some bigass font right there</h6>
             </div>
         </div>
     </body>
