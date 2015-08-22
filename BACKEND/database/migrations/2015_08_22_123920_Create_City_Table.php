@@ -17,7 +17,7 @@ class CreateCityTable extends Migration
             $table->timestamps();
             $table->integer('X');
             $table->integer('Y');
-            $table->string('name')->nullable();
+            $table->string('name')->unique();
             $table->index('X');
             $table->index('Y');
         });
