@@ -12,7 +12,7 @@ class CreateFloorTable extends Migration
      */
     public function up()
     {
-        Schema::create('Floors', function (Blueprint $table) {
+        Schema::create('floors', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->integer('BuildingID')->unsigned();
@@ -24,8 +24,8 @@ class CreateFloorTable extends Migration
             $table->index('Number');
         });
 
-        Schema::table('Floors', function ($table) {
-            $table->foreign('BuildingID')->references('id')->on('Buildings');
+        Schema::table('floors', function ($table) {
+            $table->foreign('BuildingID')->references('id')->on('buildings');
         });
     }
 
@@ -36,6 +36,6 @@ class CreateFloorTable extends Migration
      */
     public function down()
     {
-        Schema::drop('Floors');
+        Schema::drop('floors');
     }
 }

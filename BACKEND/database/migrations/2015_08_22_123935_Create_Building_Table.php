@@ -12,15 +12,15 @@ class CreateBuildingTable extends Migration
      */
     public function up()
     {
-        Schema::create('Buildings', function (Blueprint $table) {
+        Schema::create('buildings', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->integer('CityBlock')->unsigned();
 
         });
 
-        Schema::table('Buildings', function ($table) {
-            $table->foreign('CityBlock')->references('id')->on('Cities')->onDelete('cascade');
+        Schema::table('buildings', function ($table) {
+            $table->foreign('CityBlock')->references('id')->on('cities')->onDelete('cascade');
         });
 
     }
@@ -32,6 +32,6 @@ class CreateBuildingTable extends Migration
      */
     public function down()
     {
-        Schema::drop('Buildings');
+        Schema::drop('buildings');
     }
 }

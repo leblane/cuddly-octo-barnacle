@@ -12,7 +12,7 @@ class CreateDamageTable extends Migration
      */
     public function up()
     {
-        Schema::create('Damages', function (Blueprint $table) {
+        Schema::create('damages', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->integer('floor')->unsigned();
@@ -20,8 +20,8 @@ class CreateDamageTable extends Migration
             $table->integer('amount');
         });
 
-        Schema::table('Damages', function ($table) {
-            $table->foreign('floor')->references('id')->on('Floors');
+        Schema::table('damages', function ($table) {
+            $table->foreign('floor')->references('id')->on('floors');
             $table->foreign('player')->references('id')->on('players');
         });
     }
@@ -33,6 +33,6 @@ class CreateDamageTable extends Migration
      */
     public function down()
     {
-        Schema::drop('Damages');
+        Schema::drop('damages');
     }
 }
