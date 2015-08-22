@@ -15,5 +15,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('about', StaticPageHandler@about);
-Route::get('be/about', BackEndHandler@about);
+Route::get('about', 'StaticPageHandler@about');
+Route::get('be/about', 'BackEndHandler@about');
