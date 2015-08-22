@@ -24,8 +24,12 @@ class CityBlockHandler extends Controller
      *
      * @return Response
      */
-    public function create($X,$Y,$name)
+    public function create(Request $request)
     {
+        $postdata = $request->all();
+        $X = $postdata['X'];
+        $Y = $postdata['Y'];
+        $name = $postdata['name'];
         // initialize our city block (8 buildings with 4 floors each.)
         $CityBlock=\App\City::create(compact([$X,$Y,$name]));
         for ($i=0; $i < 8; $i++) {
@@ -40,6 +44,7 @@ class CityBlockHandler extends Controller
                     'BuildingID'=>$B->id ]);
             }
         }
+        return $CityBlock->id;
     }
 
     /**
