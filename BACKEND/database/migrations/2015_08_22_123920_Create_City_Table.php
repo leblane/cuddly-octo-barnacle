@@ -19,7 +19,7 @@ class CreateCityTable extends Migration
             $table->integer('Y');
             $table->string('name')->nullable();
             $table->index('X');
-            $table->index('Y'));
+            $table->index('Y');
         });
     }
 

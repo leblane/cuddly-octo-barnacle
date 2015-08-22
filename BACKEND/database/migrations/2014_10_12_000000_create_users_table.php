@@ -18,11 +18,9 @@ class CreateUsersTable extends Migration
             $table->string('login')->unique();
             $table->string('email')->unique();
             $table->string('password', 60);
-            $table->integer('cityblock')->nullable();
             $table->integer('respect');
             $table->integer('tribute');
             $table->integer('cash');
-            $table->foreign('cityblock')->references('id')->on('cities');
             $table->rememberToken();
             $table->timestamps();
         });

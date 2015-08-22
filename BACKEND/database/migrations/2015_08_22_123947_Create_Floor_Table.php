@@ -21,8 +21,8 @@ class CreateFloorTable extends Migration
             $table->integer('Built_by')->nullable();
             $table->integer('Owned_by')->nullable();
             $table->integer('Health')->default(100);
-            $table->index('index')->('Number');
-            $table->foreign('BuildingID')->references('id')->on('Building');
+            $table->index('Number');
+            $table->foreign('BuildingID')->references('id')->on('Buildings');
         });
     }
 
