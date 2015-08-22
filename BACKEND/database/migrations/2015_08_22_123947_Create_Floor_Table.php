@@ -18,8 +18,8 @@ class CreateFloorTable extends Migration
             $table->integer('BuildingID');
             $table->integer('Number');
             $table->enum('floortype', ['Home','Work','Tribute','Shop']);
-            $table->integer('Built_by')->nullable();
-            $table->integer('Owned_by')->nullable();
+            $table->integer('Built_by')->unsigned()->nullable();
+            $table->integer('Owned_by')->unsigned()->nullable();
             $table->integer('Health')->default(100);
             $table->index('Number');
         });
