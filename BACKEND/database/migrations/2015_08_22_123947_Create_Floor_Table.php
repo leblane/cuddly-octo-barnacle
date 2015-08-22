@@ -22,6 +22,9 @@ class CreateFloorTable extends Migration
             $table->integer('Owned_by')->nullable();
             $table->integer('Health')->default(100);
             $table->index('Number');
+        });
+
+        Schema::table('Floors', function ($table) {
             $table->foreign('BuildingID')->references('id')->on('Buildings');
         });
     }

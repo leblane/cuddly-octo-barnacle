@@ -16,8 +16,13 @@ class CreateBuildingTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->integer('CityBlock');
+
+        });
+
+        Schema::table('Buildings', function ($table) {
             $table->foreign('CityBlock')->references('id')->on('Cities')->onDelete('cascade');
         });
+
     }
 
     /**

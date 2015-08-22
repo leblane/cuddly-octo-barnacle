@@ -18,6 +18,9 @@ class CreateDamageTable extends Migration
             $table->integer('floor');
             $table->integer('player');
             $table->integer('amount');
+        });
+
+        Schema::table('Damages', function ($table) {
             $table->foreign('floor')->references('id')->on('Floors');
             $table->foreign('player')->references('id')->on('players');
         });

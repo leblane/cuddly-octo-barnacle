@@ -13,10 +13,10 @@ class AddCityBlockToPlayer extends Migration
     public function up()
     {
 
-        Schema::create('players', function (Blueprint $table) {
+        Schema::table('players', function ($table) {
             $table->integer('cityblock')->nullable();
             $table->foreign('cityblock')->references('id')->on('cities');
-        }
+        });
     }
 
     /**
