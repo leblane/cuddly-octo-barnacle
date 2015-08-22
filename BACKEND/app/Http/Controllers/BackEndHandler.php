@@ -12,7 +12,9 @@ class BackEndHandler extends Controller
     public function about()
     {
     	$crap = [
-    		'yourmom'=>'not in this film'
+    		'this'=>'is',
+    		'not'=>'the',
+    		'page' => [ 'you','are','looking',4 ]
     	];
 
     	return $crap;
