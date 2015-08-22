@@ -9,5 +9,12 @@ use App\Http\Controllers\Controller;
 
 class BackEndHandler extends Controller
 {
-    //
+    public function about()
+    {
+    	$crap = [
+    		'yourmom'=>'not in this film'
+    	];
+
+    	return $crap;
+    }
 }
