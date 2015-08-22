@@ -41,6 +41,7 @@ class CityBlockHandler extends Controller
                 $this->makeBlock($X,$Y);
             }
         }
+        return "Loads of blocks made";
     }
 
     private function makeBlock($X,$Y,$name)

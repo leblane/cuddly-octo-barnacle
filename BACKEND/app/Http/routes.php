@@ -18,6 +18,7 @@ Route::get('/', function () {
 Route::get('about', 'StaticPageHandler@about');
 Route::get('be/about', 'BackEndHandler@about');
 
-Route::post('citycreate', 'CityBlockHandler@create');
+Route::post('city/makeblock', 'CityBlockHandler@create');
+Route::post('city/cityinit', 'CityBlockHandler@makeInitialCityBlock');
 
 
