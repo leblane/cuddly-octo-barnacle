@@ -15,7 +15,7 @@ class AddCityBlockToPlayer extends Migration
 
         Schema::table('players', function ($table) {
             $table->integer('cityblock')->unsigned()->nullable();
-            $table->foreign('cityblock')->references('id')->on('cities');
+            $table->foreign('cityblock')->references('id')->on('Cities');
         });
     }
 

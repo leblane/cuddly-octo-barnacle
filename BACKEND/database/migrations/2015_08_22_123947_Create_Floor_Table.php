@@ -15,7 +15,7 @@ class CreateFloorTable extends Migration
         Schema::create('Floors', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->integer('BuildingID');
+            $table->integer('BuildingID')->unsigned();
             $table->integer('Number');
             $table->enum('floortype', ['Home','Work','Tribute','Shop']);
             $table->integer('Built_by')->unsigned()->nullable();

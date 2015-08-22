@@ -16,7 +16,7 @@ class CreateDamageTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->integer('floor')->unsigned();
-            $table->integer('player'->unsigned();
+            $table->integer('player')->unsigned();
             $table->integer('amount');
         });
 
