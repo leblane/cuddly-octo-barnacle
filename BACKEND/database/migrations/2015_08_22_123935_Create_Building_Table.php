@@ -20,7 +20,7 @@ class CreateBuildingTable extends Migration
         });
 
         Schema::table('buildings', function ($table) {
-            $table->foreign('CityBlock')->references('id')->on('cities')->onDelete('cascade');
+            $table->foreign('CityBlock')->references('id')->on('cityblocks')->onDelete('cascade');
         });
 
     }
