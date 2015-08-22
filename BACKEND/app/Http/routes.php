@@ -18,3 +18,6 @@ Route::get('/', function () {
 Route::get('about', 'StaticPageHandler@about');
 Route::get('be/about', 'BackEndHandler@about');
 
+Route::get('c/{X},{Y},{name}', 'CityBlockHandler@create')
+->where(['X' => '[0-9]+','Y' => '[0-9]+']);
+

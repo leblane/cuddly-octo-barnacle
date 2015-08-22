@@ -27,17 +27,17 @@ class CityBlockHandler extends Controller
     public function create($X,$Y,$name)
     {
         // initialize our city block (8 buildings with 4 floors each.)
-        $CityBlock=App\City::create(compact([$X,$Y,$name]));
+        $CityBlock=\App\City::create(compact([$X,$Y,$name]));
         for ($i=0; $i < 8; $i++) {
             // create 8 buildings
-            $B = new App\Building;
-            $B->CityBlock => $CityBlock->id;
+            $B = new \App\Building;
+            $B->CityBlock = $CityBlock->id;
             $B->save();
             $TypeArray = ['','Shop','Work','Home','Home'];
             for ($Number=1; $Number < 5 ; $Number++) {
-                App\Floor::create(['floortype'=>$TypeArray[$Number],
+                \App\Floor::create(['floortype'=>$TypeArray[$Number],
                     'Number'=>$Number,
-                    'BuildingID'=>$B->id ])
+                    'BuildingID'=>$B->id ]);
             }
         }
     }
