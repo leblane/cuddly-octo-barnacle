@@ -31,23 +31,24 @@ class CityBlockHandler extends Controller
         $Y = $postdata['Y'];
         $name = $postdata['name'];
         // initialize our city block (8 buildings with 4 floors each.)
-        $name = "CityBlock#" . $X*65536+$Y;
-        return $this->makeBlock($X,$Y,$name);
+        return $this->makeBlock($X,$Y);
     }
 
     public function makeInitialCityBlock()
     {
         for ($X=32760; $X < 32777; $X++) {
             for ($Y=32760; $Y < 32760; $Y++) {
-                $name = "CityBlock#" . $X*65536+$Y;
-                $this->makeBlock($X,$Y,$name);
+                $this->makeBlock($X,$Y);
             }
         }
     }
 
     private function makeBlock($X,$Y,$name)
     {
-        $CityBlock=\App\City::create(compact([$X,$Y,$name]));
+        $CityBlock=new \App\City;
+        $CityBlock->X = $X;
+        $CityBlock->Y = $Y;
+        $CityBlock->name = "CityBlock#" . $X*65536+$Y;
         for ($i=0; $i < 8; $i++) {
             // create 8 buildings
             $B = new \App\Building;
