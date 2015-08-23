@@ -118,16 +118,17 @@ class CityBlockHandler extends Controller
     {
     /*
         given an X,Y, width, and height:  return an 2-dimensional array
-        of each city block in that range.
+        of each city block in that range.  X first, then Y.
+        JSON query:  X,Y,W,H
     */
         $X = $request->input('X');
         $Y = $request->input('Y');
         $w = $request->input('W');
         $h = $request->input('H');
         $result = [];
-        for ($i=$X; $i < $X+$w; $i++) {
+        for ($j=$Y; $j < $Y+$h; $j++) {
             $line = [];
-            for ($j=$Y; $j < $Y+$h; $j++) {
+            for ($i=$X; $i < $X+$w; $i++) {
                 // retrieve the id based on X and Y
                 $cb = \App\Cityblock::where('X',$i)->where('Y',$j)->first();
                 $line[] = $cb['id'];
