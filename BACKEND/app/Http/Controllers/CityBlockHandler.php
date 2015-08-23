@@ -36,11 +36,13 @@ class CityBlockHandler extends Controller
 
     public function makeInitialCityBlock()
     {
+        die('already done');
+
         $Z = 0;
         for ($X=32760; $X < 32768; $X++) {
             for ($Y=32760; $Y < 32768; $Y++) {
                 $Z = $Z + 1;
-                $this->makeBlock($X,$Y);
+//                $this->makeBlock($X,$Y);
             }
         }
         return $Z . "Loads of blocks made";
