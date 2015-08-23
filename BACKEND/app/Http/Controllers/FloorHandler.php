@@ -48,6 +48,7 @@ class FloorHandler extends Controller
      */
     public function show($id)
     {
+        return( \App\Floor::find($id))
         //
     }
 

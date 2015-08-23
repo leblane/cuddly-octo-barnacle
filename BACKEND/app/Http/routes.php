@@ -20,5 +20,11 @@ Route::get('be/about', 'BackEndHandler@about');
 
 Route::post('city/makeblock', 'CityBlockHandler@create');
 Route::post('city/cityinit', 'CityBlockHandler@makeInitialCityBlock');
+Route::post('city/{id}','CityBlockHandler@show');
+Route::post('city/all/{id}','CityBlockHandler@dump');
+
+Route::post('floor/{id}','FloorHandler@show');
+
+Route::post('building/{id}','BuildingHandler@show');
 
 
