@@ -36,13 +36,16 @@ class CityBlockHandler extends Controller
 
     public function makeInitialCityBlock()
     {
-        die('already done');
+//        die('already done');
+
+        $start = 32760;
+        $stop = 32768;
 
         $Z = 0;
-        for ($X=32760; $X < 32768; $X++) {
-            for ($Y=32760; $Y < 32768; $Y++) {
+        for ($X=$start; $X < $stop; $X++) {
+            for ($Y=$start; $Y < $stop; $Y++) {
                 $Z = $Z + 1;
-//                $this->makeBlock($X,$Y);
+                $this->makeBlock($X,$Y);
             }
         }
         return $Z . "Loads of blocks made";
@@ -56,16 +59,20 @@ class CityBlockHandler extends Controller
         $xy = $X*65536+$Y;
         $CityBlock->name = "CityBlock#" . $xy;
         $CityBlock->save();
+        $TypeArray = [0,"Shop","Work","Home","Home"];
         for ($i=0; $i < 8; $i++) {
             // create 8 buildings
             $B = new \App\Building;
             $B->CityBlock = $CityBlock->id;
             $B->save();
-            $TypeArray = ['','Shop','Work','Home','Home'];
             for ($Number=1; $Number < 5 ; $Number++) {
-                \App\Floor::create(['floortype'=>$TypeArray[$Number],
-                    'Number'=>$Number,
-                    'BuildingID'=>$B->id ]);
+// This is done because the create method seems to have a bug when assigning
+// enum values. Manually seems to work.
+                $f = new \App\Floor;
+                $f['floortype']=$TypeArray[$Number];
+                $f['Number']=$Number;
+                $f['BuildingID']=$B->id;
+                $f->save();
             }
         }
         return $CityBlock->id;
