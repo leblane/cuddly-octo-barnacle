@@ -46,9 +46,9 @@ class FloorHandler extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        return( \App\Floor::find($id))
+        return( \App\Floor::find($request->input('id')));
         //
     }
 

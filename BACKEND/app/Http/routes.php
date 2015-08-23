@@ -18,13 +18,14 @@ Route::get('/', function () {
 Route::get('about', 'StaticPageHandler@about');
 Route::get('be/about', 'BackEndHandler@about');
 
-Route::post('city/makeblock', 'CityBlockHandler@create');
-Route::post('city/cityinit', 'CityBlockHandler@makeInitialCityBlock');
-Route::post('city/{id}','CityBlockHandler@show');
-Route::post('city/all/{id}','CityBlockHandler@dump');
+Route::post('cityutil/makeblock', 'CityBlockHandler@create');
+Route::post('cityutil/cityinit', 'CityBlockHandler@makeInitialCityBlock');
 
-Route::post('floor/{id}','FloorHandler@show');
+Route::post('block','CityBlockHandler@show');
+Route::post('block/all','CityBlockHandler@dump');
 
-Route::post('building/{id}','BuildingHandler@show');
+Route::post('floor','FloorHandler@show');
+
+Route::post('building','BuildingHandler@show');
 
 

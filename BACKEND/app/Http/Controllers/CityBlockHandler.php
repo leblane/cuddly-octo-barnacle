@@ -88,9 +88,24 @@ class CityBlockHandler extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
+        return(\App\Cityblock::find($request->input('id')));
         //
+    }
+
+    public function dump(Request $request)
+    {
+        $cbi = $request->input('id');
+        $cb = \App\Cityblock::find($cbi);
+        $blist = \App\Building::where('Cityblock',$cbi)->get();
+        foreach ($blist as $building) {
+            $floors = \App\Floor::where('BuildingID',$building['id'])->get();
+            $building['floors']=$floors;
+        }
+        $cb['buildings']=$blist;
+        return($cb);
+
     }
 
     /**

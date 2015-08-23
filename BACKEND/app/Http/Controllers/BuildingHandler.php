@@ -46,9 +46,12 @@ class BuildingHandler extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+        $building = \App\Building::find($request->input('id'));
+        $floors = \App\Floor::where('BuildingID',$building['id'])->get();
+        $building['floors']=$floors;
+        return ($building);
     }
 
     /**
